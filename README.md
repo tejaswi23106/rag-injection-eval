@@ -40,12 +40,13 @@ python -m pytest -q                      # unit tests for graders, retrieval, sa
 
 python run_eval.py --llm mock            # offline harness check (hard-coded model, NOT real findings)
 
-export GEMINI_API_KEY=...                # real evaluation
+$env:GEMINI_API_KEY = "your-key-here"
+$env:GEMINI_MODEL = "gemini-3.8-flash"
 python run_eval.py --llm gemini --trials 3
 ```
 
 Optional: `EMBED=st` uses sentence-transformers (all-MiniLM-L6-v2); the default is an offline hashed bag-of-words embedder.
-`GEMINI_MODEL` overrides the model (default `gemini-2.5-flash`). Outputs go to `results/<llm>_summary.md` and `results/<llm>_raw.csv`.
+`GEMINI_MODEL` overrides the model (default `gemini-3.8-flash`). In PowerShell, set it with `$env:GEMINI_MODEL = "..."`. Outputs go to `results/<llm>_summary.md` and `results/<llm>_raw.csv`.
 
 ## Results
 

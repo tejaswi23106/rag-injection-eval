@@ -12,7 +12,7 @@ class GeminiLLM:
         from google import genai
         self.genai = genai
         self.client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-        self.model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+        self.model = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
 
     def generate(self, system: str, user: str) -> str:
         from google.genai import types
